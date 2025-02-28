@@ -1,6 +1,8 @@
-const toDoForm = document.getElementById("todo-form");
+// const toDoForm = document.getElementById("todo-form");
 const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
+
+const toDoBtn = document.getElementById("todo-list-btn");
 
 const TODO_KEY = "todos";
 
@@ -51,3 +53,14 @@ if (savedToDos) {
     toDos = parsedToDos;
     parsedToDos.forEach(paintToDo);
 }
+
+function onClicktoDoListBtn() {
+    if (toDoList.classList.contains(HIDDEN_CLASSNAME)) {
+        toDoList.classList.remove(HIDDEN_CLASSNAME);
+    }
+    else {
+        toDoList.classList.add(HIDDEN_CLASSNAME);
+    }
+}
+
+toDoBtn.addEventListener("click", onClicktoDoListBtn);
